@@ -1,23 +1,50 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar/Navbar'
 import './App.css';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
+import Card from './components/Card'
+import data from './data'
+
+// import Card from './component/Card'
+// import data from './data'
+// export default function App() {
+    // const cards = data.map(item => {
+    //     return (
+    //         <Card
+    //             img={item.coverimg}
+    //             rating={item.rating}
+    //             reviewCount={item.reviewCount}
+    //             title={item.title}
+    //         />)
+    // })
+//     return (
+//         <div>
+//             <Navbar />
+//             <Main />
+//             <section className='card-list'>
+//                 {cards}
+//             </section>
+//         </div>)
+// }
 
 function App() {
+  const cards = data.map(item => {
+        return (
+            <Card
+                img={item.coverimg}
+                rating={item.rating}
+                reviewCount={item.reviewCount}
+                title={item.title}
+            />)
+    })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Main />
+      <section className='card-list'>
+        {cards}
+      </section>
+      <Footer />
     </div>
   );
 }
